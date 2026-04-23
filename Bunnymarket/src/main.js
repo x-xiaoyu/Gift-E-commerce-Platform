@@ -1,4 +1,3 @@
-// new vue() 穿件一个应用实例对象
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
