@@ -29,5 +29,11 @@ export default defineConfig([
     rules: {
       'no-undef': 'error'
     }
+  },
+  {
+    // 关掉提示 如果有重复名称但不影响使用
+  rules: {
+    'vue/multi-word-component-names': 'off'
   }
+}
 ])
