@@ -1,7 +1,12 @@
 <script setup>
 // VueUse获取滚动距离
 import { useScroll } from "@vueuse/core";
+import { getCategoryAPI } from "@/apis/layout";
+// 使用pinia中的数据
+import { useCategoryStore } from "@/stores/category";
+
 const { y } = useScroll(window);
+const categoryStore = useCategoryStore();
 </script>
 
 <template>
@@ -11,7 +16,14 @@ const { y } = useScroll(window);
       <!-- 导航区域 -->
       <ul class="app-header-nav">
         <li class="home">
-          <RouterLink>这里是什么</RouterLink>
+          <RouterLink to="/">首页</RouterLink>
+        </li>
+        <li
+          class="home"
+          v-for="item in categoryStore.categoryList"
+          :key="item.id"
+        >
+          <RouterLink to="/">{{ item.name }}</RouterLink>
         </li>
       </ul>
       <div class="right">
